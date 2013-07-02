@@ -1,0 +1,85 @@
+#logo {
+	font-size: 24px;
+	line-height: 30px;
+	width:880px;
+	margin: 30px auto;
+	position: relative;
+}
+#topinfo
+{
+	width:829px;
+	margin: 30px auto;
+}
+.mcontainer {
+	margin: 60px auto;
+	width: 876px;
+	height: 346px;
+	border: 2px solid;
+	border-color: black;
+	border-radius: 3px; 
+	position: relative;
+}
+#leftdiv {
+	background-image: url(/ebusiness/image/ad.jpg) ;
+	height:346px;
+	width:410px;
+	background-position: 0px 0px;
+}
+#rtdiv {
+	position: absolute;
+	height: 296px;
+	width: 312px;
+	right:42px;
+	top: 0px;
+}
+#caption {
+	margin-top: 20px;
+	font-size: 28px;
+	margin-bottom: 0px;
+}
+#logblock{
+	margin-top: 30px;
+}
+form .input-prepend .add-on,
+form .input-prepend input {
+	height: 30px;
+	line-height: 30px;
+}
+#info {
+	height: 20px;
+}
+.infotxt {
+	width: 312px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+	color: #7f8c8d;
+}
+.ltxt {
+	display: inline;
+}
+.rtxt{
+	margin-left: 220px;
+	display: inline;
+	margin-right: 0px;
+}
+#regform .control-group{
+	margin-top: 25px;
+	margin-bottom: 0px;
+}
+#regform .control-group .control-label {
+	width:60px;
+}
+#regform .control-group .controls{
+	margin-left: 70px;
+}
+#regform .control-group .controls input[type="text"],
+#regform .control-group .controls input[type="password"]
+{
+	width: 225px;
+}
+#reginfo {
+	margin-bottom: 10px;
+	height: 20px;
+	line-height: 30px;
+}
