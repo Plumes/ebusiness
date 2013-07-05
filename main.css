@@ -1,3 +1,9 @@
+body {
+	font-family:Roboto,arial,sans-serif;
+	height: 100%;
+	background-color: #eee;
+}
+/*for the sign in page and sign up page*/
 #logo {
 	font-size: 24px;
 	line-height: 30px;
@@ -59,7 +65,7 @@ form .input-prepend input {
 	display: inline;
 }
 .rtxt{
-	margin-left: 220px;
+	float: right;
 	display: inline;
 	margin-right: 0px;
 }
@@ -83,3 +89,67 @@ form .input-prepend input {
 	height: 20px;
 	line-height: 30px;
 }
+/*for the home page*/
+#mybrand {
+	color: #049cdb;
+	margin-left: 60px;
+	margin-right: 20px;
+}
+.mynav {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+ul {
+	list-style: none;
+}
+#maindiv {
+	width: 980px;
+	display: block;
+	background-color:#fff;
+	margin: 20px auto;
+	padding-top: 20px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+	border-bottom: 2px solid #e2e2e9;
+}
+#ltitle {
+	padding-left: 30px;
+	padding-right: 30px;
+	line-height: 50px;
+	font-size: 25px;
+	border-bottom: 1px solid black;
+}
+.plist {
+	padding: 10px 30px 15px 30px;
+	border-bottom: 1px solid #e2e2e2;
+
+}
+
+#maindiv .plist .avatar {
+	float: left;
+	margin-right: 20px;
+}
+#maindiv .plist .ptitle {
+	font-size: 18px;
+	line-height: 30px;
+	margin-left: 100px;
+	margin-right: 80px;
+}
+#maindiv .plist .pinfo {
+	font-size: 15px;
+	line-height: 30px;
+	margin-top: 20px;
+	margin-left: 100px;
+	margin-right: 80px;
+}
+#maindiv .plist .tags {
+	float: right;
+	width: 60px;
+}
+.tags p span {
+	font-size: 14px;
+	line-height: 20px;
+}
+
