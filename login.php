@@ -9,7 +9,7 @@
   //echo $upwd;
   if(strlen($uemail)>0  and strlen($upwd)>0)
   {
-    $sql = "SELECT `pwd`,`name` FROM `userinfo` WHERE `email` = '$uemail' ";
+    $sql = "SELECT `pwd`,`name`,`uid` FROM `userinfo` WHERE `email` = '$uemail' ";
     $result= mysqli_query($con,$sql);
     //echo $sql;
     $rescnt = mysqli_affected_rows($con);
@@ -23,6 +23,7 @@
         {
            $_SESSION['email']=$uemail;
            $_SESSION['name']=$row['name'];
+           $_SESSION['uid']=$row['uid'];
            echo "<script>window.location =\"index.php\";</script>";
         }
         else

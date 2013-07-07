@@ -22,8 +22,13 @@
       $sql = "INSERT INTO `userinfo`(`email`, `pwd`, `name`) VALUES ('$uemail','$upwd','$uname')";
       //echo $sql;
       $result= mysqli_query($con,$sql);
+
       $_SESSION['email']=$uemail;
       $_SESSION['name']=$row['name'];
+      $sql = "SELECT `uid` FROM `userinfo` WHERE `email` = '$uemail' ";
+      $result= mysqli_query($con,$sql);
+      $row = mysqli_fetch_array($result);
+      $_SESSION['uid'] =$row['uid'];
       echo "<script>window.location =\"index.php\";</script>";
     }
   }
