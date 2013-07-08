@@ -11,7 +11,7 @@ session_start();
 	$rescnt = mysqli_affected_rows($con);
 	if($rescnt<1)
 	{
-		echo "<script>window.location =\"404.html\";</script>";
+		//echo "<script>window.location =\"404.html\";</script>";
 	}
 	$row = mysqli_fetch_array($result);
 ?>
@@ -28,7 +28,7 @@ session_start();
 	<title>Online Store</title>
 </head>
 <body>
-<? include "navbar.php";?>
+	<? include "navbar.php";?>
 
 	<div id="maindiv">
 		<div class="row" id="ppage">
