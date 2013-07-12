@@ -18,15 +18,12 @@ session_start();
 	$pnum =  mysqli_query($con,$sql);
 	$maxpage = $pnum/10 + 1;
 	$page = $page*10;
-	$sql = "SELECT `name`,`pid`,`pname`,`saler`,`isauc`,`cat`,`stime` 
-			FROM `pinfo` LEFT JOIN `userinfo` ON `pinfo`.`saler`=`userinfo`.`uid` ";
-	if($cat>0) $sql =$sql." WHERE `cat`=$cat";
+	$sql = "SELECT `name`,`pid`,`pname`,`saler`,`isauc`,`cat`,`stime` ,`status`
+			FROM `pinfo` LEFT JOIN `userinfo` ON `pinfo`.`saler`=`userinfo`.`uid` WHERE `status`=0 ";
+	if($cat>0) $sql =$sql." AND `cat`=$cat";
 	if($auc>0) {
 		$auc=$auc-1;
-		if($cat>0)
-			$sql = $sql." AND `isauc`=$auc";
-		else
-			$sql = $sql." WHERE `isauc`=$auc";
+		$sql = $sql." AND `isauc`=$auc";
 	}
 	$sql=$sql." ORDER BY `pinfo`.`pid` DESC LIMIT $page,10 ";
 	//echo $sql;
@@ -46,6 +43,7 @@ session_start();
 	<link href="/ebusiness/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="/ebusiness/main.css" rel="stylesheet" media="screen">
     <script type="text/javascript" src="./jquery/jquery-2.0.0.min.js"></script>
+    <link href="/ebusiness/font-awesome/css/font-awesome.min.css" rel="stylesheet" media="screen">
 	<title>Online Store</title>
 </head>
 <body>
@@ -115,7 +113,13 @@ session_start();
 			}
 		?>
 	</ul>
-	
+	<?
+		if(!$_COOKIE['cpnum']) $cpnum=0;
+		else $cpnum = $_COOKIE['cpnum'];
+	?>
+	<div id='cartwidget'>
+		<i class="icon-shopping-cart icon-large icon-white"></i>您的<a href="shopcart.php">购物车</a>中共有 <a class="statustag"><? echo $cpnum; ?></a> 件商品
+	</div>
 </body>
 <? mysqli_close($con); ?>
 

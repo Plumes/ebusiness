@@ -3,6 +3,7 @@
   session_start();
   include 'consql.php';
   //echo "hello";
+  $source=$_GET['from'];
   $uemail = $_POST['email'];
   $upwd = $_POST['pwd'];
   //echo $uemail;
@@ -24,7 +25,14 @@
            $_SESSION['email']=$uemail;
            $_SESSION['name']=$row['name'];
            $_SESSION['uid']=$row['uid'];
-           echo "<script>window.location =\"index.php\";</script>";
+           if(strlen($source)>0)
+           {
+              echo '<script>window.location ="'.$source.'.php";</script>';
+           }
+           else
+           {
+              echo "<script>window.location =\"index.php\";</script>";
+           }
         }
         else
         {
@@ -46,9 +54,10 @@
     <link href="/ebusiness/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="/ebusiness/main.css" rel="stylesheet" media="screen">
     <script type="text/javascript" src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.0.min.js"></script>
+    <script src="./jquery/md5.js"></script>
   </head>
   <body>
-  		<div id="logo">Online Store</div>
+  		<div id="logo"><a href="./">Online Store</a></div>
       <?php
         if($err==1)
         {
@@ -56,15 +65,21 @@
                 Some thing was wrong,please retry!
                 </div>';
         }
+        if ($source)
+        {
+          echo '<div class="alert alert-error " id="topinfo">
+                请您登录后再使用该功能!
+                </div>';
+        }
        ?>
-  		<div class="mcontainer">
+  		<div class="mcontainer" id="demo">
   			<div id="leftdiv"></div>
   			<div id="rtdiv">
 	  		<div id="caption">Sign in</div>
-	  		<form action="/ebusiness/login.php" id="loginform" method="post" >
+	  		<form action="" id="loginform" method="post" >
           <div class="input-prepend" id="logblock">
           <span class="add-on"><i class="icon-envelope"></i></span>
-	  			<input type="text" class="input-xlarge" placeholder="Email" id="email" name="email" /></div>
+	  			<input type="text" spellcheck="false" class="input-xlarge" placeholder="Email" id="email" name="email" /></div>
           
           <div class="input-prepend" id="logblock">
             <span class="add-on"><i class="icon-lock"></i></span>
@@ -75,7 +90,7 @@
             <div class="infotxt">
               
         			<div class="ltxt">forget</div>
-        			<div class="rtxt"><a href="/ebusiness/reg.php">register</a></div>
+        			<div class="rtxt"><a href="/ebusiness/reg.php">注册</a></div>
         		</div>
 	  			<input type="submit" id="submit" class="btn btn-primary btn-block btn-large" value="Sign in">	
 	  			
@@ -96,6 +111,8 @@ $(document).ready(function()
           $("#info").text("can't be blank");
           return false;
         }
+        var ecrpwd = CryptoJS.MD5($("#pwd").val()).toString();
+        $("#pwd").val(ecrpwd);
     });
 });
 </script>

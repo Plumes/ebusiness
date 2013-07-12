@@ -6,11 +6,15 @@ body {
 }
 /*for the sign in page and sign up page*/
 #logo {
-	font-size: 24px;
+	font-size: 26px;
 	line-height: 30px;
 	width:880px;
 	margin: 30px auto;
 	position: relative;
+}
+#logo a:hover {
+	text-decoration: none;
+	color: #08c;
 }
 #topinfo
 {
@@ -18,14 +22,19 @@ body {
 	margin: 30px auto;
 }
 .mcontainer {
-	margin: 60px auto;
+	margin: 45px auto;
 	width: 876px;
 	height: 346px;
-	border: 2px solid;
-	border-color: black;
-	border-radius: 3px; 
+	border-radius: 3px;
+	background-color: #fff; 
 	position: relative;
 }
+
+#demo{ display:inline-block; position:relative; margin-left:225px; padding:20px; background:#fafafa; box-shadow:0 0 3px rgba(0, 0, 0, 0.2); -moz-border-radius:4px; border-radius:4px; color:rgba(0,0,0, 0.8); text-shadow:0 1px 0 #fff;}
+#demo::before, #demo::after{ position:absolute; content:""; top:10px; bottom:15px; left:10px; width:50%; box-shadow:0 15px 10px rgba(0, 0, 0, 0.5); -webkit-transform: rotate(-3deg); -moz-transform:rotate(-3deg); -o-transform:rotate(-3deg); -ms-transform:rotate(-3deg); transform:rotate(-3deg); z-index:-1;}
+#demo::after{ right:10px; left:auto; -webkit-transform:rotate(3deg); -moz-transform:rotate(3deg); -o-transform:rotate(3deg); -ms-transform:rotate(3deg); transform: rotate(3deg);}
+#demo img{ vertical-align:bottom;}
+
 #leftdiv {
 	background-image: url(/ebusiness/image/ad.jpg) ;
 	height:346px;
@@ -196,24 +205,23 @@ ul {
 #pimg {
 	margin-left: 40px;
 	padding-right: 20px;
-	background-color: red;
-	border: 1px solid black;
+	border-top: 1px solid #eee;
 }
 #pimg img{
 	max-width: 480px;
 	margin-top: 20px;
 }
 #paction {
-	background-color: green;
-	border: 1px solid black;
 	display: block;
 	width: 325px;
-	padding-top: 15px; 
+	padding-top: 15px;
+	border-left: 1px solid #eee;
+	border-bottom: 1px solid #eee; 
 }
 #paction ul li {
 	line-height: 40px;
 }
-#addcart {
+#addcart,#disaddcart,#addprice ,#disaddprice{
 	margin-left: 20px;
 	margin-bottom: 20px;
 	height: 20px;
@@ -224,19 +232,25 @@ ul {
 	text-decoration: none;
 }
 #pinfo {
-	background-color: black;
-	border: 1px solid black;
 	padding-left: 25px;
 	padding-top: 15px;
+	border-bottom: 1px solid #eee;
+	border-left: 1px solid #eee;
+}
+#shortinfo {
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+#shortinfo tr td {
+	width: 90px;
+	height: 30px;
 }
 #ptxt {
 	margin-left: 40px;
 	padding-left: 20px;
-	background-color: white;
-	border: 1px solid black;
+	
 }
 #pdiscuss {
-	background-color: red;
 }
 
 .lavatar {
@@ -273,4 +287,44 @@ ul {
 #addimg {
 	margin-left: 180px;
 	margin-top: 10px;
+}
+#cartwidget {
+	padding-left: 10px;
+	padding-top: 10px;
+	padding-bottom:10px;
+	padding-right: 5px; 
+	display: block;
+	position: fixed;
+	right: 0px;
+	bottom: 50%;
+	width: 120px;
+	background-color: white;  
+}
+#carttb {
+	font-size: 15px;
+	border-bottom: 1px solid black;
+}
+#subdiv {
+	height: 40px;
+}
+#subdiv c{
+	font-size: 15px;
+	margin-left: 10px;
+	line-height: 40px;
+}
+#subbtn {
+	float: right;
+	margin-right: 20px;
+}
+#delbtn {
+	color: red;
+}
+#count 
+{
+	font-size: 16px;
+	top:100px;
+	left:310px;
+	text-decoration: none;
+	position: absolute;
+	letter-spacing:0px;
 }

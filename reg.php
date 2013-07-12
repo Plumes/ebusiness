@@ -24,11 +24,12 @@
       $result= mysqli_query($con,$sql);
 
       $_SESSION['email']=$uemail;
-      $_SESSION['name']=$row['name'];
+      $_SESSION['name']=$uname;
       $sql = "SELECT `uid` FROM `userinfo` WHERE `email` = '$uemail' ";
       $result= mysqli_query($con,$sql);
       $row = mysqli_fetch_array($result);
       $_SESSION['uid'] =$row['uid'];
+      copy("/home/plumes/Projects/ebusiness/image/usericon/0.jpg","/home/plumes/Projects/ebusiness/image/usericon/".$row['uid'].".jpg");
       echo "<script>window.location =\"index.php\";</script>";
     }
   }
@@ -44,9 +45,10 @@
     <link href="/ebusiness/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="/ebusiness/main.css" rel="stylesheet" media="screen">
     <script type="text/javascript" src="http://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.0.min.js"></script>
+    <script src="./jquery/md5.js"></script>
   </head>
   <body>
-  		<div id="logo">Online Store</div>
+  		<div id="logo"><a href="./">Online Store</a></div>
       <?php
         if($err==1)
         {
@@ -55,7 +57,7 @@
                 </div>';
         }
        ?>
-  		<div class="mcontainer">
+  		<div class="mcontainer" id="demo">
   			<div id="leftdiv"></div>
   			<div id="rtdiv">
 	  		<div id="caption">Sign up</div>
@@ -63,13 +65,13 @@
 	  			<div class="control-group" >
           <label class="control-label"  for="regemail">Email</label>
           <div class="controls">
-            <input type="text" id="regemail" placeholder="Email" name="regemail">
+            <input type="text" spellcheck="false" id="regemail" placeholder="Email" name="regemail">
           </div>
         </div>
         <div class="control-group" >
           <label class="control-label"  for="reguid">Name</label>
           <div class="controls">
-            <input type="text" id="reguid" placeholder="Name" name="reguid">
+            <input type="text" spellcheck="false" id="reguid" placeholder="Name" name="reguid">
           </div>
         </div>
         <div class="control-group">
@@ -119,6 +121,9 @@ $(document).ready(function()
           $("#reginfo").text("they are not same!");
           return false;
         }
+        var ecrpwd = CryptoJS.MD5($("#regpwd").val()).toString();
+        $("#regpwd").val(ecrpwd);
+        $("#rptpwd").val(ecrpwd);
     });
 });
 </script>

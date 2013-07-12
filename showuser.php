@@ -8,6 +8,7 @@ session_start();
 	$ordsta = array("已成交","等待付款","已取消");
 	$showuid=$_GET['userid'];
 	include 'consql.php';
+	$cat=3;
 	$sql = "SELECT `email`,`name` FROM `userinfo` WHERE `uid`=$showuid ";
 	$result = mysqli_query($con,$sql);
 	$row = mysqli_fetch_array($result);

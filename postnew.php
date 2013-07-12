@@ -106,6 +106,7 @@ if ($_GET['action']=="save")
 					VALUES ('$ptitle',$price,$pnum,$uid,$isauc,'$stime',$cat,'$ptxt')";
 		}
 		include "consql.php";
+		//echo $sql;
 		$result = mysqli_query($con,$sql);
 		$pid = mysqli_insert_id($con);
 		// $pid;
@@ -151,7 +152,7 @@ if ($_GET['action']=="save")
 	<div class="control-group">
     <label class="control-label" for="pnum" >商品数量</label>
     <div class="controls">
-      <input  class="span1" type="text" id="pnum" name="pnum" required>
+      <input  class="span1" type="text" id="pnum" name="pnum" value="1" required>
     </div>
   </div>
   <div class="control-group" >
@@ -317,9 +318,12 @@ $(document).ready(function()
 	$("#isauc").click(function(){
 		//alert("show");
 		$("#etime").show();
+		$("#pnum").attr('readonly','readonly');
+		$("#pnum").attr('value','1');
 	});
 	$("#noauc").click(function(){
 		$("#etime").hide();
+		$("#pnum").removeAttr('readonly','readonly');
 	});
 	});
 	$("#submit").click(function(){
