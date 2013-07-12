@@ -42,7 +42,7 @@
     }
     else {$err=1;}
   }
-   mysqli_close($con)
+   mysqli_close($con);
 ?>
 <!DOCTYPE html>
 <html>
